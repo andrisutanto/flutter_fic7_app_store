@@ -1,58 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fic7_app_store/pages/auth/auth_page.dart';
+import 'package:flutter_fic7_app_store/pages/splash/splash_page.dart';
+// import 'pages/auth/auth_page.dart';
+import '/pages/dashboard/dashboard_page.dart';
+// import 'pages/splash/splash_page.dart';
+import 'utils/light_themes.dart';
 
-import 'pages/splash/widget/splash_painter.dart';
-import 'utils/color_resources.dart';
-import 'utils/images.dart';
-
-class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
-
-  @override
-  SplashScreenState createState() => SplashScreenState();
+void main() {
+  runApp(const MyApp());
 }
 
-class SplashScreenState extends State<SplashPage> {
-  final GlobalKey<ScaffoldMessengerState> _globalKey = GlobalKey();
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        key: _globalKey,
-        body: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              color: ColorResources.getPrimary(context),
-              child: CustomPaint(
-                painter: SplashPainter(),
-              ),
-            ),
-            Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(
-                    Images.splashLogo,
-                    height: 250.0,
-                    fit: BoxFit.scaleDown,
-                    width: 250.0,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ));
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: light,
+      home: const AuthPage(),
+    );
   }
 }
